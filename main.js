@@ -19158,14 +19158,17 @@ const flipButton = document.querySelector('#flipButton')
 
 function flipImg (event) {
   const input = document.querySelector('#imageUrl')
+  const messageBox = document.querySelector('#messageBox')
   const imgUrl = input.value
   let mimeType = ''
 
+  messageBox.textContent = 'Please give me a second.'
   axios
     .get(imgUrl, { responseType: 'arraybuffer' })
     .then(response => {
       // get image ArrayBuffer
       mimeType = response.headers['content-type']
+      messageBox.textContent = 'Work in progress.'
       return Jimp.read(response.data)
     })
     .then(image => {
@@ -19179,6 +19182,7 @@ function flipImg (event) {
       // show image
       const imgBox = document.querySelector('#ImgBox')
       const buffer = new Blob([image])
+      messageBox.textContent = ''
       imgBox.src = URL.createObjectURL(buffer)
     })
     .catch(error => console.log(error))
