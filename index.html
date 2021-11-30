@@ -5,12 +5,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Image Processing</title>
 </head>
 
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="index.js"></script>
+  <label for="imageUrl">Please enter the image URL</label>
+  <input type="url" name="imageUrl" id="imageUrl" value="https://images.unsplash.com/photo-1631086459990-06bc4d7ad6cf">
+  <button id="flipButton">flip the image</button>
+  <div id="messageBox"></div>
+  <br />
+  <img src="" alt="" id="ImgBox">
+
+  <script src="main.js"></script>
 </body>
 
 </html>
