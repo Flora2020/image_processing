@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/flipImage.js"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +12,8 @@
   "dependencies": {
     "axios": "^0.24.0",
     "jimp": "^0.16.1"
+  },
+  "devDependencies": {
+    "puppeteer": "^12.0.1"
   }
 }
