@@ -19195,9 +19195,11 @@
     function flipImg (event) {
       const input = document.querySelector('#imageUrl')
       const messageBox = document.querySelector('#messageBox')
+      const imgBox = document.querySelector('#ImgBox')
       const imgUrl = input.value
       let mimeType = ''
 
+      imgBox.src = ''
       messageBox.textContent = 'Please give me a second.'
       axios
         .get(imgUrl, { responseType: 'arraybuffer' })
@@ -19216,11 +19218,14 @@
         })
         .then(image => {
           // show image
-          const imgBox = document.querySelector('#ImgBox')
           messageBox.textContent = ''
           imgBox.src = image
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          messageBox.textContent = 'Oops. Something went wrong. Please try another URL.'
+          imgBox.src = ''
+          console.log(error)
+        })
     }
 
     flipButton.addEventListener('click', flipImg)
