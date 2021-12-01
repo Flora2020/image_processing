@@ -19187,8 +19187,6 @@
     }
 
   }, {}], 94: [function (require, module, exports) {
-    // TODO: use browserify to require('modules') in the browser
-
     const Jimp = require('jimp')
     const axios = require('axios')
 
@@ -19214,14 +19212,13 @@
           const horizontal = true
           const vertical = true
           image.flip(horizontal, vertical)
-          return image.getBufferAsync(mimeType)
+          return image.getBase64Async(mimeType)
         })
         .then(image => {
           // show image
           const imgBox = document.querySelector('#ImgBox')
-          const buffer = new Blob([image])
           messageBox.textContent = ''
-          imgBox.src = URL.createObjectURL(buffer)
+          imgBox.src = image
         })
         .catch(error => console.log(error))
     }
